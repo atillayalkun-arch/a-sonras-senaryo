@@ -2,34 +2,33 @@
 
 Girdi: açı kartı + anlatıcı DNA. Çıktı: bitmiş senaryo.
 
-İki tür malzeme var:
+Beş malzeme türü var:
 
-| | **Kanıt malzemesi** | **Anlatı malzemesi** |
-|---|---|---|
-| İşlevi | Söylediğini doğrular | Söylediğini hissettirir, akılda tutar |
-| Örnek | Akademik çalışma, resmi veri, belge | Güncel olay, insan hikâyesi, benzetme, sahne/mekân detayı |
-| Nasıl bulunur | Derin araştırmayla | Bir kısmı aranır, bir kısmı üretilir |
-| Nasıl kontrol edilir | Kaynak doğru mu? | Gerçekse kaynak; benzetmeyse eşleşme doğru mu? |
+| Kod | Tür | İşlevi |
+|-----|-----|--------|
+| GR | Güncel ruh | Konunun bugün yarattığı gerilim. "Neden şimdi?" |
+| MS | Mikro-sahne | İzleyicinin her gün yaşadığı küçük, somut anlar. "Beni anlatıyor." |
+| MK | Mekanizma | Yaşanan durumun arkasındaki sistem kuralı veya literatürdeki adı. |
+| SV | Somut vaka | Mekanizmanın gerçek hayatta görüldüğü belgelenmiş olay. |
+| SK | Soğuk kanıt | Akademik çalışma, resmî veri, anket. Mekanizmayı mühürler. |
+
+**Araştırma ilkesi:** Tarafsızlık cevabı önceden varsaymamaktır, konudan kaçınmak değildir.
 
 ---
 
-## Katman 1: Araştırma planı *(girdi: açı kartı)*
+## Katman 1: Keşif ve haritalama *(girdi: açı kartı)*
 
-- **Görev A:** Açı kartından iki liste çıkar:
-  - **Kanıt soruları (6–10 adet):** Ne doğrulanmalı? Her soru bir kaynak türüne bağlanır: akademik, resmi veri, birincil belge, çelişki/tartışma.
-  - **Anlatı ihtiyaçları:** Hook adayı, güncel bağlantı ("bu neden şimdi önemli?"), insan hikâyesi/anekdot, bölgeye özel detay.
-- **Görev B:** İki listeden en güçlü 3–5 maddeyi seç ve her biri için bir **araştırma brifi** (hazır prompt) yaz.
-- **Çıktı:** 1 sayfa: iki liste, seçilenler ve briflerin kendisi.
-- **Bitti kriteri:** Seçilen maddeler karşılandığında videonun ana vaadi hem kanıtlanmış hem anlatılabilir oluyor.
-- **Not:** Benzetmeler bu katmanda toplanmaz. Onlar 5. katmanda üretilir.
+Promptlar: `katman-1/`
+
+- **1A Radar** (web erişimli model): Konunun son 2–3 yıldaki haritası. Canlı dil, güncel sürtünmeler, acı noktaları, klişeler, açık tartışmalar.
+- **1B Çarklar ve matris** (yeni sohbet): Radar'dan türetilen 3–4 hipotez çark, 1 çürütme sorusu ve her çark için gereken malzeme türlerini gösteren matris.
+- **İnsan onayı** (5–10 dk).
+- **1C Brifler** (1B ile aynı sohbet): Malzeme türüne göre gruplanmış 3 brif (G: güncel ruh + mikro-sahne, V: somut vaka, K: soğuk kanıt + mekanizma).
 
 ## Katman 2: Hedefli araştırma
 
-- Her brif için ayrı bir araştırma çalıştırması yapılır. Yöntem malzeme türüne göre seçilir:
-  - **Kanıt:** Gemini/ChatGPT Deep Research.
-  - **Güncel olay/veri:** Tarih filtreli normal arama. Derin araştırma modları en güncel olaylarda zayıf kalabiliyor.
-  - **İnsan hikâyesi / yerel detay:** Japonca kaynaklara yönelik hedefli derin araştırma. Brife kaynakları adıyla yaz: J-STAGE, CiNii Research, Ulusal Diyet Kütüphanesi Dijital Koleksiyonu (国立国会図書館デジタルコレクション), yerel tarih kaynakları (郷土資料), belediye ve yerel haber siteleri. Japonca sorguyla aratılmasını da iste.
-- Her brif, raporun **sabit formatta** dönmesini ister: iddia/olay, kaynak linki, tarih, doğrudan alıntı, şaşırtıcı detay, çelişkiler.
+- 3 brif, 3 ayrı derin araştırma çalıştırması olarak verilir. Ek prompt gerekmez.
+- Her türün zaman penceresi, kaynak havuzu ve doğrulama ilkesi brifin içinde sabittir.
 - **Kural:** Brif başına tek çalıştırma yapılır. İkinci tura sadece 4. katman somut bir boşluk bulursa izin var.
 
 ## Katman 3: Malzeme kartları
