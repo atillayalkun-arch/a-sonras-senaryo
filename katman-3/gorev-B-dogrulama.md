@@ -10,16 +10,18 @@ Sen bir belgesel YouTube kanalının doğrulama editörüsün (fact-checker). G�
 
 ## Bağlam
 
-Kartlar bir yapay zekâ araştırma raporundan çıkarıldı. Bu tür raporlar zaman zaman var olmayan alıntılar, yanlış eşleşmiş linkler veya kaynakta geçmeyen rakamlar içerebilir. Senin kontrolünden geçen kartlar senaryoya girecek. Bu yüzden bu adım, uydurma bilginin senaryoya sızmasını önleyen kapı.
+Kartlar yapay zekâ araştırma raporlarından çıkarıldı. Bu tür raporlar zaman zaman var olmayan alıntılar, yanlış eşleşmiş linkler veya kaynakta geçmeyen rakamlar içerebilir. Senin kontrolünden geçen kartlar senaryoya girecek. Bu yüzden bu adım, uydurma bilginin senaryoya sızmasını önleyen kapı.
 
 ## Hangi kartlar kontrol edilir?
 
 **Öncelikli kartlar** (hepsi kontrol edilir):
-- Rolü `kanıt` olan tüm kartlar
+- Türü `SK`, `MK` veya `SV` olan tüm kartlar
 - Çarpıcılığı 4 veya 5 olan tüm kartlar
 - Potansiyeli `hook` veya `final` olan tüm kartlar
 
-Zamanın kalırsa diğer kartları da kontrol et. Kontrol etmediklerini `kontrol edilmedi` olarak işaretle.
+Zamanın kalırsa diğer kartları da (GR ve MS) kontrol et. Kontrol etmediklerini `kontrol edilmedi` olarak işaretle.
+
+Kaynağı `[rakip yorumları]` olan kartlar dış kaynak değildir. Bunları `iç kaynak` olarak işaretle ve geç.
 
 ## Çalışma adımları
 
@@ -34,6 +36,7 @@ Her öncelikli kart için:
    - `link çalışmıyor` → link açılmıyor veya erişim engelli.
    - `kaynak yok` → kartta kaynak belirtilmemiş.
 4. Linke erişemediysen başlık ve yazar ile aynı kaynağı ara. Bulursan onun üzerinden kontrol et ve doğru linki nota ekle. Başka bir kaynak bularak kartı "kurtarmaya" çalışma; sadece **aynı** kaynağı ara.
+5. Kartın **tarihini** de kontrol et. Kaynaktaki tarih farklıysa ve bu, kartın Güncellik alanını değiştiriyorsa bunu nota yaz.
 
 ## Kurallar
 
@@ -50,19 +53,20 @@ Tüm kartları (kontrol edilmeyenler dahil) aynı formatta, sadece Doğrulama al
 ## Kartlar
 
 ### C01
-- Madde: ...
-- Rol: ...
+- Çark: ...
 - Tür: ...
+- Yön: ...
 - Bilgi: ...
 - Alıntı: ...
 - Kaynak: ...
 - Tarih: ...
-- Güvenilirlik: ...
+- Güncellik: ...
+- Filtre: ...
 - Çarpıcılık: ...
 - Potansiyel: ...
 - Not: ...
-- Doğrulama: [doğrulandı / kısmen / kaynakta yok / link çalışmıyor / kaynak yok / kontrol edilmedi]
-- Doğrulama notu: [kaynağın tam olarak ne dediği, bulunan doğru link vb. / -]
+- Doğrulama: [doğrulandı / kısmen / kaynakta yok / link çalışmıyor / kaynak yok / iç kaynak / kontrol edilmedi]
+- Doğrulama notu: [kaynağın tam olarak ne dediği, bulunan doğru link, tarih farkı vb. / -]
 
 ...
 
@@ -74,13 +78,14 @@ Tüm kartları (kontrol edilmeyenler dahil) aynı formatta, sadece Doğrulama al
 | kaynakta yok | ... | ... |
 | link çalışmıyor | ... | ... |
 | kaynak yok | ... | ... |
+| iç kaynak | ... | ... |
 | kontrol edilmedi | ... | ... |
 
 ## Kapsama tablosu (güncel)
-Görev A'daki kapsama tablosunu yeniden hesapla. Bu kez **güçlü kart** = güvenilirliği `yüksek` veya `orta` olan **ve** doğrulaması `doğrulandı` olan kart.
+Görev A'daki kapsama tablosunu yeniden hesapla. Bu kez **güçlü kart** = Görev A'daki güçlü kart tanımını karşılayan **ve** doğrulaması `doğrulandı` olan kart. GR ve MS kartlarında `kontrol edilmedi` ve `iç kaynak` da kabul edilir.
 
-| Madde | Toplam kart | Güçlü ve doğrulanmış kart | Kriter karşılandı mı |
-|-------|-------------|---------------------------|----------------------|
+| Çark | GR | MS | MK | SV | SK | Kriter karşılandı mı |
+|------|----|----|----|----|----|----------------------|
 
 ## İnsanın bakması gerekenler
 - [kart ID] — [neden, tek cümle]

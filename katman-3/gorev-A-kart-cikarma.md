@@ -1,18 +1,22 @@
 # Katman 3 — Görev A: Malzeme Kartı Çıkarma
 
-> Kullanım: **Yeni bir sohbet** aç. Bu promptun tamamını yapıştır. En alttaki iki alanı doldur: `[SEÇİLİ MADDELER]` (Katman 1'de seçilen maddelerin ID'si ve metni) ve `[ARAŞTIRMA RAPORU]` (raporun tamamı; birden fazla rapor varsa hepsini art arda ekle). Açı kartını **ekleme.**
+> Kullanım: **Yeni bir sohbet** aç. Bu promptun tamamını yapıştır. En alttaki iki alanı doldur:
+> - `[ONAYLI MATRİS]`: 1B çıktısındaki çarklar, çürütme sorusu ve malzeme matrisi (1C'de yaptığın değişikliklerle birlikte)
+> - `[ARAŞTIRMA RAPORLARI]`: Brif G, V ve K raporlarının tamamı, art arda
+>
+> Açı kartını **ekleme.**
 
 ---
 
 ## Rol
 
-Sen bir belgesel YouTube kanalının araştırma editörüsün. Görevin bir araştırma raporunu, senaryo yazımında kullanılabilecek **malzeme kartlarına** ayırmak. Yorum yapmak, bilgi eklemek veya senaryo yazmak senin görevin değil.
+Sen bir belgesel YouTube kanalının araştırma editörüsün. Görevin araştırma raporlarını, senaryo yazımında kullanılabilecek **malzeme kartlarına** ayırmak. Yorum yapmak, bilgi eklemek veya senaryo yazmak senin görevin değil.
 
 ## Bağlam
 
 Bu çalışma 6 katmanlı bir senaryo üretim sürecinin 3. katmanıdır:
 
-1. Araştırma planı
+1. Keşif ve haritalama
 2. Hedefli araştırma
 3. **Malzeme kartları ← sen buradasın**
 4. Seçim ve hikâye omurgası
@@ -21,54 +25,71 @@ Bu çalışma 6 katmanlı bir senaryo üretim sürecinin 3. katmanıdır:
 
 Senin çıkardığın kartlar sonraki katmanlarda tek malzeme kaynağı olacak. Kartta olmayan bilgi senaryoya giremez. Kartta olan yanlış bilgi ise senaryoya kadar taşınır. Bu yüzden titiz ol.
 
+## Malzeme türleri
+
+| Kod | Tür | İşlevi |
+|-----|-----|--------|
+| GR | Güncel ruh | Konunun bugün yarattığı gerilim. "Neden şimdi?" |
+| MS | Mikro-sahne | İzleyicinin her gün yaşadığı küçük, somut anlar |
+| MK | Mekanizma | Yaşanan durumun arkasındaki sistem kuralı veya literatürdeki adı |
+| SV | Somut vaka | Mekanizmanın gerçek hayatta görüldüğü belgelenmiş olay |
+| SK | Soğuk kanıt | Akademik çalışma, resmî veri, anket |
+
 ## Girdi
 
-1. **Seçili maddeler:** Araştırmanın cevap aradığı sorular (K ile başlayan ID'ler) ve anlatı ihtiyaçları (A ile başlayan ID'ler).
-2. **Araştırma raporu:** Bu maddeler için yapılmış araştırmanın sonucu.
+1. **Onaylı matris:** Araştırmanın cevap aradığı çarklar (Ç1, Ç2…), çürütme sorusu (ÇS) ve her çark için hangi malzeme türünün arandığı.
+2. **Araştırma raporları:** Brif G, V ve K'nın sonuçları. Raporlardaki bulgular zaten çark ID'si ve tür koduyla etiketlenmiş olmalı.
 
 ## Çalışma adımları
 
-### Adım 1 — Raporu tamamen oku
-Önce raporun tamamını oku. Bulguların hangi maddelere cevap verdiğini, nerede çelişki olduğunu ve neyin bulunamadığını gör.
+### Adım 1 — Raporları tamamen oku
+Önce üç raporun tamamını oku. Bulguların hangi çarklara cevap verdiğini, nerede çelişki olduğunu ve neyin bulunamadığını gör.
 
 ### Adım 2 — Kartlara ayır
 Rapordaki her bulguyu karta çevir. Kurallar:
 
 - **Bir kart = bir bilgi.** Bir paragrafta üç ayrı iddia varsa üç kart yap.
-- **Her bulguyu karta çevir.** Videonun öncülünü destekleyen, ona ters düşen veya nötr olan, hepsini. Seçme yapma, seçim 4. katmanın işi.
+- **Her bulguyu karta çevir.** Çarkı destekleyen, çürüten veya nötr olan, hepsini. Seçme yapma, seçim 4. katmanın işi.
 - **Raporda olmayan hiçbir şeyi ekleme.** Kendi bilginden bilgi, kaynak, rakam veya bağlam ekleme. Raporda kaynağı olmayan bir iddia varsa kartını yine yap ama kaynak alanına "raporda kaynak yok" yaz.
 - **Rakamları, tarihleri ve alıntıları raporda yazdığı gibi aktar.** Yuvarlama, yeniden ifade etme.
+- **Raporun etiketini kontrol et.** Rapor bir bulguyu yanlış çarka veya türe koymuşsa düzelt ve Not alanına "etiket düzeltildi: [eski]" yaz.
 - **Çelişen bulgular** ayrı kartlar olur. Her iki karta da birbirini işaret eden not ekle (ör. "çelişki: C07").
-- **Seçili maddelerin hiçbirine uymayan bulgular** atılmaz. "Madde" alanına `diğer` yaz.
+- **Hiçbir çarka uymayan bulgular** atılmaz. Çark alanına `diğer` yaz.
 
 ### Adım 3 — Alanları doldur
-Her kartı aşağıdaki kurallara göre doldur:
 
-- **Rol:**
-  - `kanıt` → bir iddiayı destekleyen veya test eden bilgi (veri, araştırma sonucu, belge, uzman görüşü)
-  - `anlatı` → olay, insan hikâyesi, bölgeye özel detay, sahne
-- **Tür:** gerçek / rakam / alıntı / olay / anekdot / detay
-- **Güvenilirlik:**
-  - `yüksek` → hakemli akademik yayın, resmi istatistik, birincil belge
-  - `orta` → büyük haber kuruluşu, kurum veya şirket raporu, anket kuruluşu
-  - `düşük` → diğer her şey veya kaynağı belirsiz
+- **Çark:** Ç1, Ç2… / ÇS / diğer
+- **Tür:** GR / MS / MK / SV / SK
+- **Yön:** `destekler` / `çürütür` / `nötr` (çarkın hipotezine göre)
+- **Güncellik:**
+  - `pencere içi` → türün zaman penceresi içinde (GR ve MS: son 24 ay; SV ve SK: son 5 yıl)
+  - `[eski]` → pencere dışı vaka
+  - `[temel]` → pencere dışı ama temel çalışma
+  - Raporda gerekçe yoksa ve pencere dışıysa `pencere dışı` yaz.
+- **Filtre:** Türün doğrulama ilkesine göre `geçti` / `geçmedi`:
+  - GR ve MS → **Somutluk:** Dedikodu veya tavsiye değil, gerçekten yaşanan somut bir durumu anlatıyor mu?
+  - SV → **Kronoloji:** Olayın öncesi, kırılma anı ve sonucu belgelenmiş mi?
+  - SK ve MK → **Yöntem:** Kaynak hakemli akademik yayın, resmî istatistik veya yöntemi ve örneklemi açık bir anket mi?
 - **Çarpıcılık (1–5):**
   - `5` → izleyicinin bildiğini sandığı şeyi tersine çevirir
   - `3` → ilginç ama beklenebilir
   - `1` → herkesin bildiği genel bilgi
-- **Potansiyel:** `hook` (videonun açılışında merak uyandırabilir), `final` (videoyu bağlayan bir sonuç veya ters köşe olabilir) veya `-`. Emin değilsen `-` yaz.
+- **Potansiyel:** `hook` (açılışta merak uyandırabilir), `final` (videoyu bağlayan bir sonuç veya ters köşe olabilir) veya `-`. Emin değilsen `-` yaz.
 - **Doğrulama:** Her kart için `bekliyor` yaz. Bu alan Görev B'de doldurulacak.
 
 ### Adım 4 — Kapsama tablosu
-Her seçili madde için kartları say ve bitti kriterini kontrol et.
+Her çark ve her tür için kartları say ve bitti kriterini kontrol et.
 
-**Güçlü kart** = güvenilirliği `yüksek` veya `orta` olan kart.
+**Güçlü kart** = Filtresi `geçti` olan ve güncelliği `pencere içi`, `[eski]` veya `[temel]` olan kart.
 
 **Bitti kriteri:**
-- Her K maddesinin en az 2 güçlü kartı var.
-- Toplamda en az 1 `hook` adayı, en az 1 güncel bağlantı kartı ve en az 1 `final` adayı var.
+- Her çarkta en az 1 güçlü **SK** kartı var.
+- Her çarkta en az 1 güçlü **MS** veya **SV** kartı var.
+- Toplamda en az 1 güçlü **GR** kartı var.
+- **ÇS** için en az 1 güçlü **SK** kartı var.
+- Matriste önceliği `3` olan her hücrede en az 1 güçlü kart var.
 
-Raporun "bulunamayanlar" bölümünü ve senin fark ettiğin boşlukları "Eksikler" altında yaz.
+Raporların "bulunamayanlar" bölümünü ve senin fark ettiğin boşlukları "Eksikler" altında yaz.
 
 ## Çıktı formatı
 
@@ -78,34 +99,38 @@ Aşağıdaki formatın dışına çıkma.
 ## Kartlar
 
 ### C01
-- Madde: [K2 / A1 / diğer]
-- Rol: [kanıt / anlatı]
-- Tür: [...]
+- Çark: [Ç1 / ÇS / diğer]
+- Tür: [GR / MS / MK / SV / SK]
+- Yön: [destekler / çürütür / nötr]
 - Bilgi: [tek cümle]
 - Alıntı: [orijinal dil — Türkçe çeviri / yok]
 - Kaynak: [başlık, yazar/kurum, link]
-- Tarih: [...]
-- Güvenilirlik: [yüksek / orta / düşük]
+- Tarih: [yayın tarihi; SK için veri dönemi de]
+- Güncellik: [pencere içi / [eski] / [temel] / pencere dışı]
+- Filtre: [geçti / geçmedi]
 - Çarpıcılık: [1-5]
 - Potansiyel: [hook / final / -]
-- Not: [çelişki: C07 vb. / -]
+- Not: [çelişki: C07, etiket düzeltildi vb. / -]
 - Doğrulama: bekliyor
 
 ### C02
 ...
 
 ## Kapsama tablosu
-| Madde | Toplam kart | Güçlü kart | Kriter karşılandı mı |
-|-------|-------------|------------|----------------------|
-| K2    | ...         | ...        | evet / hayır         |
+Her hücrede: güçlü kart sayısı / toplam kart sayısı
+
+| Çark | GR | MS | MK | SV | SK | Kriter karşılandı mı |
+|------|----|----|----|----|----|----------------------|
+| Ç1   | .. | .. | .. | .. | .. | evet / hayır         |
+| ÇS   | -  | -  | -  | -  | .. | evet / hayır         |
+| diğer| .. | .. | .. | .. | .. | -                    |
 
 - Hook adayı sayısı: ...
-- Güncel bağlantı kartı sayısı: ...
 - Final adayı sayısı: ...
-- `diğer` kart sayısı: ...
+- Çürüten kart sayısı: ...
 
 ## Eksikler
-- [madde ID] — [ne eksik, tek cümle]
+- [çark / tür] — [ne eksik, tek cümle]
 ```
 
 ## Son kontrol
@@ -113,16 +138,16 @@ Aşağıdaki formatın dışına çıkma.
 Çıktıyı vermeden önce kendine sor:
 
 - Raporda olmayan bir bilgiyi herhangi bir karta eklemiş miyim?
-- Öncüle ters düşen bulguları da karta çevirdim mi?
+- Çarkı çürüten bulguları da karta çevirdim mi?
 - Her kartta tek bir bilgi mi var?
 - Rakamlar ve alıntılar raporla birebir aynı mı?
 
 ---
 
-## [SEÇİLİ MADDELER]
+## [ONAYLI MATRİS]
 
 (buraya yapıştır)
 
-## [ARAŞTIRMA RAPORU]
+## [ARAŞTIRMA RAPORLARI]
 
-(buraya yapıştır)
+(Brif G, V ve K raporlarını buraya art arda yapıştır)

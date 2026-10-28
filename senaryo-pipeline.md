@@ -33,12 +33,11 @@ Promptlar: `katman-1/`
 
 ## Katman 3: Malzeme kartları
 
-- Her rapor, tek bilgiden oluşan kartlara bölünür. Kart şablonu:
+Promptlar: `katman-3/`
 
-  `ID | rol (kanıt/anlatı) | bilgi | tür (gerçek/rakam/alıntı/olay/anekdot/detay) | kaynak + tarih | güvenilirlik | çarpıcılık 1-5 | hangi maddeye cevap`
-
-- En önemli kartların kaynağı açılıp kontrol edilir ve kart "doğrulandı/doğrulanmadı" diye işaretlenir. Deep research modları kaynak uydurabiliyor.
-- **Bitti kriteri:** Her seçili kanıt sorusunun en az 2 güçlü kartı var. Ayrıca en az 1 hook adayı, 1 güncel bağlantı ve 1 final (payoff) adayı var.
+- **Görev A — Kart çıkarma** (yeni sohbet): Girdi onaylı matris + 3 rapor. Her bulgu tek bilgilik karta dönüşür. Kart alanları: çark, tür (GR/MS/MK/SV/SK), yön (destekler/çürütür/nötr), bilgi, alıntı, kaynak, tarih, güncellik, filtre, çarpıcılık, potansiyel (hook/final).
+- **Görev B — Doğrulama** (web erişimli model): SK, MK, SV kartları ve çarpıcı kartlar kaynağında kontrol edilir.
+- **Bitti kriteri:** Her çarkta en az 1 güçlü SK ve en az 1 güçlü MS veya SV kartı; toplamda en az 1 güçlü GR; çürütme sorusu için en az 1 güçlü SK; önceliği 3 olan her matris hücresinde en az 1 güçlü kart.
 
 ## Katman 4: Seçim ve hikâye omurgası
 
